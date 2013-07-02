@@ -1,0 +1,27 @@
+{
+  "name": "MIB",
+  "description": "Mobile input bridge.",
+  "author": "Viktor Koop <viktor.koop@gmail.com>",
+  "version": "0.0.1",
+  "dependencies": {
+    "connect": "*",
+    "express": "*",
+    "jade": "*",
+    "socket.io": "*",
+    "qrcode" : "*",
+    "connect-assets" : "*",
+    "stylus" : "*",
+    "nib" : "*",
+    "underscore" : "*",
+    "canvas" : "*",
+    "coffee-script" : "*",
+    "q" : "*",
+    "uuid" : "*"
+  },
+  "devDependencies": {
+    "vows": "*",
+	"mocha": "*",
+	"should": "*"
+  },
+  "engine": "node >= 0.6.6"
+}

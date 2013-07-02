@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	script window.instanceInputId = "#{locals.instanceInputId}";
+	div#input.full-screen
+		textarea(cols="50", rows="20")
+
+append footer
+	!= js('type_client')
