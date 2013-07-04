@@ -78,7 +78,7 @@ server.get "/client-register", (req, res) ->
 
 server.get "/qrcode/:id", (req, res) ->
   ipPromise.then (add) ->
-    QRCode.draw "http://"+add + ":" + port + "/client-input/" + req.params.id, (err, data)->
+    QRCode.draw "http://"+add + ":" + port + "/client-input/" + req.params.id, {errorCorrectLevel: "minimum"}, (err, data)->
         data.pngStream().pipe(res)
 
 server.get "/500", (req, res) ->
@@ -89,5 +89,11 @@ NotFound = (msg) ->
   Error.call this, msg
   Error.captureStackTrace this, arguments_.callee
 
-ipPromise.then (add) ->
+ipPromise.then((add) ->
   console.log "Listening on http://"+add+":" + port
+, (error) ->
+  console.log "Misconfiguration of the server. 
+  Couldn't resolve ip. Please specify the server ip. 
+  Try to start the server with the server ip specified 
+  in your env. eg. 'SERVER_IP=192.168.100.2 coffee server.coffee'"
+)
