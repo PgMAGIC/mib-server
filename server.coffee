@@ -8,7 +8,7 @@ dns = require('dns')
 Q = require('q')
 uuid =  require('uuid')
 
-port = (process.env.PORT or 9001)
+port = (process.env.PORT or 8081)
 
 ipPromise = require('./serverInfo').getServerIp()
 
